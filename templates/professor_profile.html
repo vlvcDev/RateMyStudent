@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="card">
+  <h1 class="profile-title">Professor {{ professor.full_name }}'s Profile:</h1>
+
+  <h2>Recommended Students:</h2>
+  
+    {% for recommendation in professor_recommendations %}
+      <div class="card-rating">
+        <div class="card">
+          <div class="rating-details">
+            <strong>Student: </strong> {{ recommendation.student_recommendations.full_name }}
+          </div>
+        </div>
+        <div class="rating-description">
+          <strong>Description: </strong> {{ recommendation.description }}
+        </div>
+        <a href="/users/{{ recommendation.student_id }}" class="btn">Student Profile</a>
+      </div>
+    {% endfor %}
+  
+</div>
+{% endblock %}

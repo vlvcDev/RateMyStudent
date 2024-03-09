@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="card-fit">
+    <h1 class="profile-title">Profile Search:</h1>
+    <div class="profile-title">Find a Student or Professor</div>
+    <div id="search-bar-container">
+        <form action="/search" method="get">
+            <input type="text" id="search-input" name="query" placeholder="Enter Name...">
+        </form>
+        <div id="suggestions-container"></div>
+    </div>
+</div>
+<script>
+
+document.getElementById('search-input').addEventListener('input', function() {
+    var searchQuery = this.value;
+    var suggestionsContainer = document.getElementById('suggestions-container');
+
+    if (searchQuery.length === 0) {
+        suggestionsContainer.style.display = 'none';
+    } else {
+        fetch('/search-suggestions?q=' + encodeURIComponent(searchQuery))
+            .then(response => response.json())
+            .then(suggestions => {
+                suggestionsContainer.innerHTML = '';
+                suggestions.forEach(function(suggestion) {
+                    var div = document.createElement('div');
+                    div.innerText = suggestion.name;  // 'name' is a property of the suggestion object
+                    div.addEventListener('click', function() {
+                        window.location.href = '/users/' + suggestion.id;  // 'id' is a property
+                    });
+                    suggestionsContainer.appendChild(div);
+                });
+                if (suggestions.length > 0) {
+                    suggestionsContainer.style.display = 'block';
+                }
+            });
+        }
+    });
+
+
+</script>
+{% endblock %}

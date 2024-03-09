@@ -1,0 +1,32 @@
+@startuml
+
+@startuml
+!theme blueprint
+
+participant User as U
+entity Rate_my_Student as WS
+database Database as DB
+
+
+U --> WS : Authorized user Request list of names 
+WS --> DB : Request list of all Users
+DB --> WS : retrieves directory 
+WS --> U : Displays names in the directory
+U --> WS : User chooses a User
+WS --> DB : Request profile of particular Users
+DB --> WS : Returns Average Ratings of a selected User 
+DB --> WS : Returns Name of selected student
+DB --> WS : Returns list of reviews for selected User
+U --> WS : Authorized user clicks on review
+WS --> U: Directs to a review form page
+U --> WS: Fills out form and clicks sumbit 
+WS --> DB: Sends Added review to be stored back 
+WS --> DB: Sends New calculated overall average to save
+WS --> DB: Sends New calculated mastery average to save
+WS --> DB: Sends New calculated teamwork average to save
+WS --> DB: Sends New calculated partipation average to save
+DB --> WS: Return success 
+WS --> U : Display review successful notification
+
+
+@enduml
