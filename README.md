@@ -1,7 +1,5 @@
 # Overview
 
-##Use this section to outline the vision for the product to be developed, including a use case diagram that shows the main user interactions with the product, in order to provide readers with an overview of the project.
-
 The 'Rate My Student' app envisions creating a transparent and collaborative educational ecosystem by providing a platform for constructive feedback and performance evaluation. Our software aims to address the challenge of subjective assessment and foster a positive learning environment for students. The primary goal is to empower educators and students themselves to contribute valuable insights into individual learning journeys. This app targets educational institutions, professors, and students. By encouraging open communication and feedback, 'Rate My Student' strives to enhance the educational experience, promote continuous improvement, and ultimately contribute to the success and well-rounded growth of every student.
 
 ![](images/logo.png)
@@ -70,8 +68,6 @@ At a minimum, this section should have a class diagram that succinctly describes
 ![](images/sequenceDiagramUS2.png)
 
 # Development Process 
-
-This section should be used to describe how the scrum methodology was used in this project. As a suggestion, include the following table to summarize how the sprints occurred during the development of this project.
 
 |Sprint#|Goals|Start|End|Done|Observations|
 |---|---|---|---|---|---|
